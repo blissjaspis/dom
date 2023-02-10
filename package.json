@@ -1,0 +1,38 @@
+{
+  "name": "bliss-jaspis-dom",
+  "version": "1.0.0",
+  "description": "DOM Javascript",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "./build.js --watch",
+    "build": "pnpm run clean && ./build.js && tsc --emitDeclarationOnly",
+    "clean": "rm -rf dist && rm -rf types",
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blissjaspis/dom.git"
+  },
+  "keywords": [
+    "dom"
+  ],
+  "author": "Bliss Jaspis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blissjaspis/dom/issues"
+  },
+  "homepage": "https://github.com/blissjaspis/dom#readme",
+  "devDependencies": {
+    "@types/node": "^16.18.12",
+    "esbuild": "^0.17.6",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5",
+    "vitest": "^0.28.4"
+  }
+}
