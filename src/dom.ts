@@ -41,8 +41,12 @@ const dom : Dom = {
         return this
     },
     build(element) {
-        if (! element && this.result) {
-            document.body.appendChild(this.result)
+        if (this.result) {
+            if (element) {
+                element?.appendChild(this.result)
+            } else {
+                document.body.appendChild(this.result)
+            }
         }
     },
 }
