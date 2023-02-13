@@ -1,1 +1,3 @@
-export * from "./dom"
+import dom from "./dom"
+
+export {dom}

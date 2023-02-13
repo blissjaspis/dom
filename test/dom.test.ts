@@ -1,12 +1,18 @@
 import dom from "../src/dom"
-import { test, expect} from "vitest"
+import { test, expect, describe} from "vitest"
 
-test('can create element', () => { 
-    const element = dom('h1', 'Mau Makan Dulu') as HTMLHeadingElement
-    expect(element.innerHTML).toBe('Mau Makan Dulu')
- })
+describe('create element', () => {
+    test('tagname exist and have text value', () => {
+        const element = dom.add('h1', 'the best title')
+        expect(element.result?.tagName).toBe('H1')
+        expect(element.result?.innerText).toBe('the best title')
+    })
+})
 
-test('check when show invalid element', () => { 
-    const element = dom('example', 'testing') as HTMLUnknownElement
-    expect(element.toString()).toBe("<example>testing</example>")
- })
+describe('can create child', () => {
+    test('tagname child exist', () => {
+        const element = dom.add('div').addChild('h1', 'divs child')
+
+        expect(element.result?.innerHTML).toBe('<h1>divs child</h1>')
+    })
+})
