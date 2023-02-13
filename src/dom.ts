@@ -1,5 +1,5 @@
 interface ObjectChild {
-    [index: string] : string
+    [index: string]: string
 }
 
 interface Dom {
@@ -9,12 +9,14 @@ interface Dom {
     build: (element?: HTMLElement) => void
 }
 
-function process(metadata : HTMLElement, attributes?: string | ObjectChild) {
+function process(metadata: HTMLElement, attributes?: string | ObjectChild) {
     if (attributes) {
         if (attributes instanceof Object) {
             for (const key in attributes) {
-                if (key === 'text') {
-                    metadata.appendChild(document.createTextNode(attributes[key]))
+                if (key === "text") {
+                    metadata.appendChild(
+                        document.createTextNode(attributes[key])
+                    )
                 } else {
                     metadata.setAttribute(key, attributes[key])
                 }
@@ -26,18 +28,19 @@ function process(metadata : HTMLElement, attributes?: string | ObjectChild) {
     }
 }
 
-const dom : Dom = {
+const dom: Dom = {
     add(element, attribute) {
         const metadata = document.createElement(element)
         process(metadata, attribute)
         this.result = metadata
+        
         return this
     },
     addChild(element, attribute) {
         const metadata = document.createElement(element)
         process(metadata, attribute)
         this.result?.appendChild(metadata)
-        
+
         return this
     },
     build(element) {
