@@ -5,7 +5,7 @@ interface ObjectChild {
 interface Dom {
     result?: HTMLElement
     add: (element: string, attribute?: string | ObjectChild) => this
-    addChild: (element: string, attribute: string | ObjectChild) => this
+    addChild: (element: string, attribute?: string | ObjectChild) => this
     build: (element?: HTMLElement) => void
 }
 
